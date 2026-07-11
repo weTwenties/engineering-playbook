@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "page": "home",
+  "sections": [
+    {
+      "id": "main-hero",
+      "type": "hero",
+      "variant": "campaign",
+      "visible": true,
+      "props": {
+        "title": "Summer Campaign",
+        "image": "/campaigns/summer/hero.webp"
+      }
+    },
+    {
+      "id": "featured-campaign",
+      "type": "campaign",
+      "visible": true,
+      "props": {
+        "campaignId": "summer-2026"
+      }
+    },
+    {
+      "id": "product-grid",
+      "type": "productGrid",
+      "variant": "default",
+      "visible": true,
+      "props": {
+        "categoryId": "featured"
+      }
+    },
+    {
+      "id": "bottom-cta",
+      "type": "callToAction",
+      "visible": false,
+      "props": {
+        "label": "Shop now",
+        "href": "/products"
+      }
+    }
+  ]
+}

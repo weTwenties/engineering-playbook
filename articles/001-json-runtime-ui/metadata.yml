@@ -1,0 +1,14 @@
+id: "001"
+slug: json-runtime-ui
+title: "JSON Runtime UI trong dự án Mini App: Giảm những lần release không cần thiết"
+series: Engineering Playbook
+author: Vinh Nguyen
+organization: weTwenties
+category: Frontend Architecture
+status: Published
+publishedAt: "2026-07-11"
+tags:
+  - frontend-architecture
+  - runtime-ui
+  - zalo-mini-app
+  - configuration

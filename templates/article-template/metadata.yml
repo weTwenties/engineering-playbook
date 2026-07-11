@@ -1,0 +1,10 @@
+id: "000"
+slug: article-slug
+title: "Article title"
+series: Engineering Playbook
+author: Author Name
+organization: weTwenties
+category: Category
+status: Draft
+publishedAt: null
+tags: []

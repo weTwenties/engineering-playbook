@@ -1,0 +1,53 @@
+name: Validate Content
+
+on:
+  pull_request:
+    paths:
+      - "articles/**"
+  push:
+    branches: [main]
+    paths:
+      - "articles/**"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate article structure
+        run: |
+          set -e
+          errors=0
+
+          for dir in articles/*/; do
+            [ -d "$dir" ] || continue
+            slug=$(basename "$dir")
+
+            if [ ! -f "$dir/README.md" ]; then
+              echo "ERROR: $dir missing README.md"
+              errors=$((errors + 1))
+            fi
+
+            if [ ! -f "$dir/metadata.yml" ]; then
+              echo "ERROR: $dir missing metadata.yml"
+              errors=$((errors + 1))
+            else
+              for field in id slug title author organization category status; do
+                if ! grep -q "^${field}:" "$dir/metadata.yml"; then
+                  echo "ERROR: $dir/metadata.yml missing field: $field"
+                  errors=$((errors + 1))
+                fi
+              done
+            fi
+
+            echo "OK: $slug"
+          done
+
+          if [ "$errors" -gt 0 ]; then
+            echo "Validation failed with $errors error(s)."
+            exit 1
+          fi
+
+          echo "All articles passed validation."

@@ -1,0 +1,45 @@
+name: Update Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "articles/**"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate articles index
+        run: |
+          ARTICLES=$(find articles -mindepth 1 -maxdepth 1 -type d | sort | while read -r dir; do
+            slug=$(basename "$dir")
+            title=$(grep -m1 '^title:' "$dir/metadata.yml" | sed 's/^title: *"\?\(.*\)"\?$/\1/')
+            echo "- [#${slug%%-*} — $title](./articles/$slug/README.md)"
+          done)
+
+          awk -v articles="$ARTICLES" '
+            /^## Articles$/ { print; print articles; skip=1; next }
+            skip && /^- \[/ { next }
+            skip && /^$/ { skip=0 }
+            { print }
+          ' README.md > README.tmp && mv README.tmp README.md
+
+      - name: Commit index update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No index changes."
+          else
+            git commit -m "chore: update articles index"
+            git push
+          fi
