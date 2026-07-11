@@ -18,6 +18,7 @@ Mỗi giải pháp đều cần được đánh giá dựa trên context, constr
 chi phí vận hành của hệ thống.
 
 ## Articles
+- [#001 — JSON Runtime UI trong dự án Mini App: Giảm những lần release không cần thiết"](./articles/001-json-runtime-ui/README.md)
 
 - [#001 — JSON Runtime UI trong dự án Mini App](./articles/001-json-runtime-ui/README.md)
 
