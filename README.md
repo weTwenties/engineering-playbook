@@ -30,6 +30,7 @@ This repository is intended to grow into a shared engineering asset for the weTw
 - Good architecture should make similar future changes cheaper and safer.
 
 ## Articles
+- [#001 — JSON Runtime UI trong dự án Mini App: Giảm những lần release không cần thiết"](./articles/001-json-runtime-ui/README.md)
 
 - [#001 — JSON Runtime UI trong dự án Mini App: Giảm những lần release không cần thiết](./articles/001-json-runtime-ui/README.md)
 
