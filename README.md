@@ -41,3 +41,14 @@ For shorter personal notes and the thinking behind these decisions, see [Build L
 ---
 
 Maintained by **weTwenties**.
+
+## License
+
+Unless otherwise noted:
+
+- Written content and diagrams are licensed under
+  [Creative Commons Attribution 4.0 International](LICENSE).
+- Code snippets and example implementations are licensed under the
+  [MIT License](LICENSE-CODE).
+
+The weTwenties name, branding, and trademarks are not included in these licenses.
