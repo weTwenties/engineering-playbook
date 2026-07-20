@@ -1,0 +1,14 @@
+id: "002"
+slug: component-registry
+title: "Component Registry trong Runtime UI: Thiết kế một contract ổn định giữa JSON và source code"
+series: Engineering Playbook
+author: Vinh Nguyen
+organization: weTwenties
+category: Frontend Architecture
+status: Draft
+publishedAt: null
+tags:
+  - frontend-architecture
+  - runtime-ui
+  - component-registry
+  - configuration
